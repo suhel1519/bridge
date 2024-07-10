@@ -13,14 +13,4 @@ app.use("/api", tokens_route);
 app.use("/api", quote_routes);
 app.use("/api", transaction_routes);
 
-const start = async () => {
-  try {
-    app.listen(PORT, () => {
-      console.log(`Server started at PORT: ${PORT}`);
-    });
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-start();
+app.listen(PORT, () => console.log(`Server started at PORT: ${PORT}`));
