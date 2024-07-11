@@ -6,7 +6,7 @@ const getTransactionDetails = async (req, res) => {
   const srcQuoteTokenAmount = req.query.srcQuoteTokenAmount;
   const dstChainId = req.query.dstChainId;
   const dstQuoteTokenAddress = req.query.dstQuoteTokenAddress;
-  //   const slippage = req.query.slippage;
+  const slippage = req.query.slippage;
   const receiver = req.query.receiver;
   const bridgeProvider = req.query.bridgeProvider;
   const srcBridgeTokenAddress = req.query.srcBridgeTokenAddress;
@@ -20,11 +20,11 @@ const getTransactionDetails = async (req, res) => {
     srcQuoteTokenAddress !== srcBridgeTokenAddress &&
     dstQuoteTokenAddress !== dstBridgeTokenAddress
   ) {
-    url = `${process.env.XY_FINANCE_BASE_URL}/buildTx?srcChainId=${srcChainId}&srcQuoteTokenAddress=${srcQuoteTokenAddress}&srcQuoteTokenAmount=${srcQuoteTokenAmount}&dstChainId=${dstChainId}&dstQuoteTokenAddress=${dstQuoteTokenAddress}&slippage=1&receiver=${receiver}&bridgeProvider=${bridgeProvider}&srcBridgeTokenAddress=${srcBridgeTokenAddress}&dstBridgeTokenAddress=${dstBridgeTokenAddress}&srcSwapProvider=${srcSwapProvider}&dstSwapProvider=${dstSwapProvider}`;
+    url = `${process.env.XY_FINANCE_BASE_URL}/buildTx?srcChainId=${srcChainId}&srcQuoteTokenAddress=${srcQuoteTokenAddress}&srcQuoteTokenAmount=${srcQuoteTokenAmount}&dstChainId=${dstChainId}&dstQuoteTokenAddress=${dstQuoteTokenAddress}&slippage=${slippage}&receiver=${receiver}&bridgeProvider=${bridgeProvider}&srcBridgeTokenAddress=${srcBridgeTokenAddress}&dstBridgeTokenAddress=${dstBridgeTokenAddress}&srcSwapProvider=${srcSwapProvider}&dstSwapProvider=${dstSwapProvider}`;
   } else if (srcQuoteTokenAddress !== srcBridgeTokenAddress) {
-    url = `${process.env.XY_FINANCE_BASE_URL}/buildTx?srcChainId=${srcChainId}&srcQuoteTokenAddress=${srcQuoteTokenAddress}&srcQuoteTokenAmount=${srcQuoteTokenAmount}&dstChainId=${dstChainId}&dstQuoteTokenAddress=${dstQuoteTokenAddress}&slippage=1&receiver=${receiver}&bridgeProvider=${bridgeProvider}&srcBridgeTokenAddress=${srcBridgeTokenAddress}&dstBridgeTokenAddress=${dstBridgeTokenAddress}&srcSwapProvider=${srcSwapProvider}`;
+    url = `${process.env.XY_FINANCE_BASE_URL}/buildTx?srcChainId=${srcChainId}&srcQuoteTokenAddress=${srcQuoteTokenAddress}&srcQuoteTokenAmount=${srcQuoteTokenAmount}&dstChainId=${dstChainId}&dstQuoteTokenAddress=${dstQuoteTokenAddress}&slippage=${slippage}&receiver=${receiver}&bridgeProvider=${bridgeProvider}&srcBridgeTokenAddress=${srcBridgeTokenAddress}&dstBridgeTokenAddress=${dstBridgeTokenAddress}&srcSwapProvider=${srcSwapProvider}`;
   } else if (dstQuoteTokenAddress !== dstBridgeTokenAddress) {
-    url = `${process.env.XY_FINANCE_BASE_URL}/buildTx?srcChainId=${srcChainId}&srcQuoteTokenAddress=${srcQuoteTokenAddress}&srcQuoteTokenAmount=${srcQuoteTokenAmount}&dstChainId=${dstChainId}&dstQuoteTokenAddress=${dstQuoteTokenAddress}&slippage=1&receiver=${receiver}&bridgeProvider=${bridgeProvider}&srcBridgeTokenAddress=${srcBridgeTokenAddress}&dstBridgeTokenAddress=${dstBridgeTokenAddress}&dstSwapProvider=${dstSwapProvider}`;
+    url = `${process.env.XY_FINANCE_BASE_URL}/buildTx?srcChainId=${srcChainId}&srcQuoteTokenAddress=${srcQuoteTokenAddress}&srcQuoteTokenAmount=${srcQuoteTokenAmount}&dstChainId=${dstChainId}&dstQuoteTokenAddress=${dstQuoteTokenAddress}&slippage=${slippage}&receiver=${receiver}&bridgeProvider=${bridgeProvider}&srcBridgeTokenAddress=${srcBridgeTokenAddress}&dstBridgeTokenAddress=${dstBridgeTokenAddress}&dstSwapProvider=${dstSwapProvider}`;
   }
 
   try {

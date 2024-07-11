@@ -3,6 +3,6 @@ const router = express.Router();
 
 const { getTransactionDetails } = require("../controllers/transaction");
 
-router.route("/buildTx").get(getTransactionDetails);
+router.route("/buildTx").post(getTransactionDetails);
 
 module.exports = router;
